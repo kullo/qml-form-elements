@@ -2,18 +2,11 @@ import QtQuick 2.0
 
 FocusScope {
     id: _root
-    property real padding: 0
     property bool _FORM_TYPE_FORM: true
-
-    default property alias contents: column.children
 
     signal accepted()
     signal rejected()
     signal submitted()
-
-    anchors {
-        fill: parent
-    }
 
     function checkInput(element) {
         var ok = true
@@ -85,12 +78,4 @@ FocusScope {
     }
 
     Component.onCompleted: focusFirstInput(this)
-
-    Column {
-        id: column
-        anchors {
-            fill: parent
-            margins: padding
-        }
-    }
 }

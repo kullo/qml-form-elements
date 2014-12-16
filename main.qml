@@ -11,7 +11,9 @@ ApplicationWindow {
 
     FForm {
         id: form
-        padding: 15
+        anchors {
+            fill: parent
+        }
         onAccepted: {
             var surname = surnameInput.text
             var name    = nameInput.text
@@ -27,66 +29,73 @@ ApplicationWindow {
             console.warn("You are not done yet.")
         }
 
-        Row {
-            FLabel {
-                text: qsTr("Surname")
-                target: surnameInput
-                width: 80
+        Column {
+            anchors {
+                fill: parent
+                margins: 15
             }
 
-            FTextField {
-                id: surnameInput
-                width: 200
-            }
-        }
+            Row {
+                FLabel {
+                    text: qsTr("Surname")
+                    target: surnameInput
+                    width: 80
+                }
 
-        Row {
-            FLabel {
-                text: qsTr("Name")
-                target: nameInput
-                width: 80
-            }
-
-            FTextField {
-                id: nameInput
-                width: 200
-            }
-        }
-
-        Row {
-            FLabel {
-                text: qsTr("Phone")
-                target: phoneInput
-                width: 80
-            }
-
-            FTextField {
-                id: phoneInput
-                width: 200
-                validator: RegExpValidator {
-                    regExp: /^(\+)?[-. 0-9]{9,12}$/
+                FTextField {
+                    id: surnameInput
+                    width: 200
                 }
             }
-        }
 
-        Row {
-            FLabel {
-                text: qsTr("Language")
-                target: langInput
-                width: 80
+            Row {
+                FLabel {
+                    text: qsTr("Name")
+                    target: nameInput
+                    width: 80
+                }
+
+                FTextField {
+                    id: nameInput
+                    width: 200
+                }
             }
 
-            FComboBox {
-                id: langInput
-                model: ['en', 'fr', 'es', 'de']
+            Row {
+                FLabel {
+                    text: qsTr("Phone")
+                    target: phoneInput
+                    width: 80
+                }
+
+                FTextField {
+                    id: phoneInput
+                    width: 200
+                    validator: RegExpValidator {
+                        regExp: /^(\+)?[-. 0-9]{9,12}$/
+                    }
+                }
             }
-        }
 
-        Row {
-            anchors.right: parent.right
+            Row {
+                FLabel {
+                    text: qsTr("Language")
+                    target: langInput
+                    width: 80
+                }
 
-            FClearButton { }
-            FSubmitButton { }
+                FComboBox {
+                    id: langInput
+                    model: ['en', 'fr', 'es', 'de']
+                }
+            }
+
+            Row {
+                anchors.right: parent.right
+
+                FClearButton { }
+                FSubmitButton { }
+            }
         }
     }
 }
