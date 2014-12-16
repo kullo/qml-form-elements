@@ -4,6 +4,8 @@ FocusScope {
     id: _root
     property bool _FORM_TYPE_FORM: true
 
+    property var validator: null
+
     signal accepted()
     signal rejected()
     signal submitted()
@@ -29,7 +31,17 @@ FocusScope {
     }
 
     onSubmitted: {
-        if (checkInput(this)) accepted()
+        var accept = false
+        if (validator)
+        {
+            if (validator() && checkInput(this)) accept = true
+        }
+        else
+        {
+            if (checkInput(this)) accept = true
+        }
+
+        if (accept) accepted()
         else rejected()
     }
 
