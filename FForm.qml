@@ -76,7 +76,7 @@ FocusScope {
     function focusFirstInput(element)
     {
         var found = false
-        for (var i = 0; i < element.children.length; ++i)
+        for (var i = 0; i < element.children.length && found == false; ++i)
         {
             var child = element.children[i]
             if (child._FORM_TYPE_INPUT)
