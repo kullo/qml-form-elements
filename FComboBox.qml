@@ -2,6 +2,8 @@ import QtQuick 2.3
 import QtQuick.Controls 1.2
 
 ComboBox {
+    property bool _FORM_TYPE_INPUT: true
+
     function findParentForm()
     {
         var elem = parent
