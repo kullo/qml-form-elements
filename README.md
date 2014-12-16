@@ -15,6 +15,8 @@ You can run the example form with `qmlscene`. No need to compile any C++:
 
     qmlscene qml-form-elements/main.qml
 
+![Screenshot](assets/screenshot.png)
+
 
 Supported elements
 ------------------
