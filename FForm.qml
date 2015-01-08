@@ -10,6 +10,10 @@ FocusScope {
     signal rejected()
     signal submitted()
 
+    function resetFocus() {
+        _focusFirstInput(this)
+    }
+
     function checkInput(element) {
         var ok = true
         for (var i = 0; i < element.children.length; ++i)
@@ -73,7 +77,7 @@ FocusScope {
         }
     }
 
-    function focusFirstInput(element)
+    function _focusFirstInput(element)
     {
         var found = false
         for (var i = 0; i < element.children.length && found == false; ++i)
@@ -84,10 +88,10 @@ FocusScope {
                 child.focus = true
                 found = true
             }
-            found = found || focusFirstInput(child)
+            found = found || _focusFirstInput(child)
         }
         return found
     }
 
-    Component.onCompleted: focusFirstInput(this)
+    Component.onCompleted: _focusFirstInput(this)
 }

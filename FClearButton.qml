@@ -13,6 +13,7 @@ FButton {
         else
         {
             form.clear()
+            form.resetFocus()
         }
     }
 }
