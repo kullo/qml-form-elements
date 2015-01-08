@@ -64,7 +64,7 @@ FocusScope {
             var child = element.children[i]
             if (!child._FORM_TYPE_IGNORE_IN_FORM_CLEARING)
             {
-                if (child._FORM_TYPE_INPUT)
+                if (child._FORM_TYPE_INPUT_TEXT)
                 {
                     child.text = ""
                 }
