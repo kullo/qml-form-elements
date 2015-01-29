@@ -7,8 +7,6 @@ Button {
 
     signal buttonAction()
 
-    isDefault: activeFocus
-
     onClicked: buttonAction()
     Keys.onReturnPressed: if (activeFocus) buttonAction()
     Keys.onEnterPressed: if (activeFocus) buttonAction()
